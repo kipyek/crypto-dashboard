@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Route, Routes } from 'react-router';
 import HomePage from './pages/home';
 import AboutPage from './pages/about';
+import Header from './components/Header';
 
 
 const API_URL = import.meta.env.VITE_COINS_API_URL
@@ -57,7 +58,9 @@ const App = () => {
 
 
   return (
-    <Routes>
+    <>
+    <Header/>
+     <Routes>
       <Route path='/' element={<HomePage
         loading={loading}
         error={error}
@@ -71,6 +74,8 @@ const App = () => {
       />} />
       <Route path='/about' element={<AboutPage/>} />
     </Routes>
+    </>
+   
   )
 }
 
